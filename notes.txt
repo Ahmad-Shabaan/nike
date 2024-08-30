@@ -1,0 +1,271 @@
+left fuc => from sql
+
+insert into
+will dublicate tabel with data and strurue
+
+
+
+to learn tanstack => react query 
+watch these videos 
+
+1===>https://www.youtube.com/watch?v=NOvx4LB6Hfk
+
+2===>https://www.youtube.com/watch?v=_W3R2VwRyF4&t=5158s
+
+
+
+
+
+tailwind
+
+
+📚 Materials/References:
+GitHub Code (give it a star ⭐): https://github.com/adrianhajdin/nike_...
+GitHub Gist Code Snippets & Dark Mode Script: https://gist.github.com/adrianhajdin/...
+Assets: https://drive.google.com/file/d/1ccqj...
+Tailwind Play - https://play.tailwindcss.com/
+Tailwind CSS - https://tailwindcss.com/
+
+
+
+for icons : https://heroicons.com/
+and you can customize it by tailwind
+
+
+
+for avoid long style line 
+you can use 
+
+-- directives
+--break your layout to  components 
+
+=> open css tab 
+(tailwind file config)
+and add @layout components {
+	@apply  ...your style
+}
+
+
+
+-- component libraries
+	like
+		shadcs
+		tailwind ui
+		headless ui
+		
+
+
+
+
+
+
+
+
+
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+
+
+
+
+These directives include Tailwind's predefined layers:
+The `@layer` directive in Tailwind CSS is used to define and organize custom styles into specific layers. This is useful because it allows you to control the order in which your styles are applied, ensuring that they interact correctly with Tailwind's pre-defined layers. The main layers in Tailwind are:
+
+@tailwind base;: Includes base styles (resets, normalizations).
+@tailwind components;: Includes component styles, which are usually custom styles or pre-defined components.
+@tailwind utilities;: Includes utility classes, which are small, reusable classes for styling elements.
+
+
+In Tailwind CSS, the directives `@tailwind base;`, `@tailwind components;`, and `@tailwind utilities;` are used to include different layers of Tailwind's generated styles in your CSS file. Each of these directives serves a specific purpose in structuring the output CSS:
+
+### 1. **`@tailwind base;`**
+   - **Purpose:** This directive injects Tailwind's base styles into your CSS. These styles include browser resets, normalization, and some minimal global styles that ensure consistency across different browsers. Tailwind's base layer is intended to provide a solid foundation for building your design.
+   - **Includes:** 
+     - CSS reset based on [modern-normalize](https://github.com/sindresorhus/modern-normalize)
+     - Global styles for HTML elements (e.g., setting `box-sizing: border-box`, resetting margins, and more)
+
+   - **Example:**
+     ```css
+     @tailwind base;
+     ```
+
+### 2. **`@tailwind components;`**
+   - **Purpose:** This directive includes Tailwind's component styles. These are pre-designed, styled components like buttons, forms, and other common UI elements that you might use in your project. However, by default, this layer may be empty unless you've defined custom components in your Tailwind configuration.
+   - **Custom Components:** If you've defined any custom styles or components using Tailwind's `@apply` directive or in your `tailwind.config.js`, they'll be included here.
+   
+   - **Example:**
+     ```css
+     @tailwind components;
+     ```
+
+### 3. **`@tailwind utilities;`**
+   - **Purpose:** This directive injects all of Tailwind's utility classes. These are the atomic classes that Tailwind is known for, such as `p-4` for padding, `text-center` for text alignment, `bg-blue-500` for background color, etc. This layer is where the majority of Tailwind's power lies, allowing you to quickly build complex designs by applying multiple utility classes to your HTML elements.
+   - **Example:**
+     ```css
+     @tailwind utilities;
+     ```
+
+### **How They Work Together**
+When you include these directives in your CSS file, Tailwind processes them and generates the necessary styles in the correct order. Typically, you include them in this order in a main CSS file like `styles.css`:
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+This ensures that your base styles are loaded first, followed by any component styles, and finally, the utility classes that you will use throughout your project. This structure helps maintain a logical order in your CSS and prevents potential conflicts between different styles.
+
+
+
+### Explanation of the Code
+
+The code you provided is a combination of Tailwind CSS directives and custom CSS rules. Let's break it down step by step:
+
+#### 1. **Tailwind Directives**
+   ```css
+   @tailwind base;
+   @tailwind components;
+   @tailwind utilities;
+   ```
+   These directives include Tailwind's predefined layers:
+   - `@tailwind base;`: Includes base styles (resets, normalizations).
+   - `@tailwind components;`: Includes component styles, which are usually custom styles or pre-defined components.
+   - `@tailwind utilities;`: Includes utility classes, which are small, reusable classes for styling elements.
+
+#### 2. **Global Styles**
+   ```css
+   * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     scroll-behavior: smooth;
+   }
+   ```
+   This is a global style reset that applies to all elements (`*`). It:
+   - Removes default margins and padding.
+   - Sets `box-sizing: border-box` for consistent element sizing.
+   - Enables smooth scrolling for the page.
+
+#### 3. **`@layer` Directive**
+   ```css
+   @layer components {
+     .max-container {
+       max-width: 1440px;
+       margin: 0 auto;
+     }
+
+     .input {
+       @apply sm:flex-1 max-sm:w-full text-base leading-normal text-slate-gray pl-5 max-sm:p-5 outline-none sm:border-none border max-sm:border-slate-gray max-sm:rounded-full;
+     }
+   }
+   ```
+   - **`@layer components`:** This directive allows you to define your own custom component styles that will be included in the `components` layer. 
+     - **`.max-container`:** A utility class that sets a maximum width of `1440px` and centers the container horizontally.
+     - **`.input`:** A utility class that applies several Tailwind utilities to input elements. This includes responsive styling for different screen sizes (`sm` and `max-sm`).
+
+   ```css
+   @layer utilities {
+     .padding { /* ... */ }
+     .padding-x { /* ... */ }
+     .padding-y { /* ... */ }
+     .padding-l { /* ... */ }
+     .padding-r { /* ... */ }
+     .padding-t { /* ... */ }
+     .padding-b { /* ... */ }
+     .info-text { /* ... */ }
+   }
+   ```
+   - **`@layer utilities`:** This directive allows you to define your custom utility classes that will be included in the `utilities` layer.
+     - **Padding classes:** These utility classes (`.padding`, `.padding-x`, `.padding-y`, etc.) apply padding with different responsive settings for various screen sizes.
+     - **`.info-text`:** A utility class that applies a specific font, text color, size, and line height to text elements.
+
+### Can You Rename `@layer components`?
+
+Yes, you can rename `@layer components` to anything you like, such as `@layer myCustomLayer`. The name you choose for the `@layer` directive doesn't affect how Tailwind processes your CSS, but it's a good practice to use descriptive names that make it clear what the layer contains. For example:
+
+```css
+@layer myCustomLayer {
+  /* custom styles here */
+}
+```
+
+However, renaming `@layer components` to something else won't change how Tailwind processes the CSS, but it may reduce clarity in larger projects. The `components` layer is commonly used for reusable component styles, and changing its name should be done with a clear understanding of the project's structure.
+
+### What Does the `@layer` Directive Do?
+
+The `@layer` directive in Tailwind CSS is used to define and organize custom styles into specific layers. This is useful because it allows you to control the order in which your styles are applied, ensuring that they interact correctly with Tailwind's pre-defined layers. The main layers in Tailwind are:
+
+- **`base`**: For resetting and normalizing styles.
+- **`components`**: For component-specific styles.
+- **`utilities`**: For utility classes.
+
+By using `@layer`, you can inject your custom styles into these layers or create new layers, ensuring that they are ordered correctly when the final CSS is generated. This is particularly useful for overriding Tailwind's defaults or adding custom styles in a maintainable way.
+
+### Summary
+- The `@tailwind` directives pull in Tailwind's base, component, and utility layers.
+- The global styles apply universal resets.
+- The `@layer` directive organizes custom styles into layers, which can be named according to your needs.
+- You can rename the `@layer components` to anything, but it’s best to use descriptive names that reflect the purpose of the layer.
+
+
+
+The line `import { useInView } from "react-intersection-observer";` is used to import the `useInView` hook from the `react-intersection-observer` library.
+
+### What is `react-intersection-observer`?
+
+`react-intersection-observer` is a popular library for React that helps you detect when an element enters or leaves the viewport. It uses the Intersection Observer API under the hood, which is a web API for observing the visibility and position of an element relative to a root element or the viewport.
+
+### What is `useInView`?
+
+`useInView` is a React hook provided by the `react-intersection-observer` library. This hook allows you to easily detect when an element is in view (i.e., when it enters or leaves the viewport) and trigger animations or other effects based on that visibility.
+
+### How `useInView` Works
+
+- **Initialization**: The `useInView` hook is called within your component and returns two key items: a `ref` and an `inView` boolean.
+  - `ref`: This is a reference that you attach to the DOM element you want to observe.
+  - `inView`: This is a boolean that indicates whether the element is currently within the viewport (or within a specified threshold of the viewport).
+
+- **Behavior**: When the observed element enters the viewport, the `inView` boolean becomes `true`. When it exits the viewport, `inView` becomes `false`. You can then use this boolean to trigger animations or other side effects.
+
+### Installation
+
+To use the `useInView` hook, you first need to install the `react-intersection-observer` package:
+
+```bash
+npm install react-intersection-observer
+```
+
+### Example Usage
+
+Here’s a basic example showing how `useInView` is used:
+
+```jsx
+import React from 'react';
+import { useInView } from 'react-intersection-observer';
+
+const MyComponent = () => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,  // The animation or effect will only trigger the first time the element comes into view
+    threshold: 0.5,     // The element is considered "in view" when 50% of it is visible
+  });
+
+  return (
+    <div ref={ref} style={{ height: '100vh', backgroundColor: inView ? 'lightgreen' : 'lightcoral' }}>
+      {inView ? 'I am in view!' : 'Scroll down to see me!'}
+    </div>
+  );
+};
+
+export default MyComponent;
+```
+
+### Key Options in `useInView`:
+
+- **`triggerOnce`**: If set to `true`, the hook will stop observing after the first time the element enters the viewport.
+- **`threshold`**: Defines the percentage of the element that needs to be visible for it to be considered "in view". A value of `0` means any amount of visibility triggers it, while `1` means the entire element must be visible.
+
+### Why Use It?
+
+Using `useInView` is particularly helpful in scenarios where you want to lazy-load content, trigger animations (like the service section animation you mentioned), or perform any action that depends on whether an element is visible on the screen. It's a modern and efficient way to observe and respond to changes in the visibility of elements, especially in a single-page application context.
